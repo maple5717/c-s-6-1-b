@@ -87,6 +87,8 @@ public class IntList {
             ptr = A;
         else if (B != null)
             return  B; 
+        else 
+            return null;
 
         while(ptr.rest != null)
             ptr = ptr.rest;
@@ -128,13 +130,13 @@ public class IntList {
         return output;
     }
 
-    public static void main(String[] args) {
-        IntList L1 = IntList.of(1, 2, 3);
-        // IntList L1 = IntList.of();
-        // IntList L2 = IntList.of(4, 5, 6);
-        IntList L2 = IntList.of();
-        System.out.println(dcatenate(L1, L2));
-    }
+    // public static void main(String[] args) {
+    //     IntList L1 = IntList.of(1, 2, 3);
+    //     // IntList L1 = IntList.of();
+    //     // IntList L2 = IntList.of(4, 5, 6);
+    //     IntList L2 = IntList.of();
+    //     System.out.println(catenate(null, L2));
+    // }
 
 
 
