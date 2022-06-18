@@ -82,10 +82,18 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
-        IntList ptr = A;
+        IntList ptr = null;
+        if (A != null)
+            ptr = A;
+        else if (B != null)
+            return  B; 
+
         while(ptr.rest != null)
             ptr = ptr.rest;
-        ptr.rest = B;
+
+        if (B != null)
+            ptr.rest = B;
+
         return A;
     }
 
@@ -95,26 +103,38 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        IntList output = new IntList(A.first, null);
-        IntList ptr = A.rest;
-        IntList ptr_out = output;
+        IntList ptr = null;
+        IntList output = null;
+        IntList ptr_out = null;
+        if (A != null){
 
-        // copy A
-        while (ptr != null){
-            IntList nextone = new IntList(ptr.first, null);
-            ptr_out.rest = nextone;
-            ptr = ptr.rest;
-            ptr_out = ptr_out.rest;
+            output = new IntList(A.first, null);
+            ptr = A.rest;
+            ptr_out = output;
+    
+            // copy A
+            while (ptr != null){
+                IntList nextone = new IntList(ptr.first, null);
+                ptr_out.rest = nextone;
+                ptr = ptr.rest;
+                ptr_out = ptr_out.rest;
+            }
         }
-        ptr_out.rest = B;
+        else if (B != null)
+            return B;
+        
+        if (B != null)
+            ptr_out.rest = B;
         return output;
     }
 
-    // public static void main(String[] args) {
-    //     IntList L1 = IntList.of(1, 2, 3);
-    //     IntList L2 = IntList.of(4, 5, 6);
-    //     System.out.println(catenate(L1, L2));
-    // }
+    public static void main(String[] args) {
+        IntList L1 = IntList.of(1, 2, 3);
+        // IntList L1 = IntList.of();
+        // IntList L2 = IntList.of(4, 5, 6);
+        IntList L2 = IntList.of();
+        System.out.println(dcatenate(L1, L2));
+    }
 
 
 
