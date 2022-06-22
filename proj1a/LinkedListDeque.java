@@ -25,7 +25,7 @@ public class LinkedListDeque<T> {
             size = 0;
         }
 
-        public LinkedListDeque(LinkedListDeque other) {
+        LinkedListDeque(LinkedListDeque other) {
             sentinel = new DeqNode(null, null, null);
             first = sentinel;
             last = sentinel;
@@ -126,7 +126,7 @@ public class LinkedListDeque<T> {
             return p.item;
     }
 
-    public DeqNode get_node(DeqNode p, int idx) {
+    private DeqNode get_node(DeqNode p, int idx) {
         if (idx == 0){
             return p;
         }
