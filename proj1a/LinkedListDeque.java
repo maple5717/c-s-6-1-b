@@ -6,7 +6,7 @@ public class LinkedListDeque<T> {
     private DeqNode last;
     private int size;
 
-    private class DeqNode{
+    private class DeqNode {
         private T item;
         private DeqNode prev;
         private  DeqNode next;
@@ -18,38 +18,38 @@ public class LinkedListDeque<T> {
         }
     }
 
-        public LinkedListDeque() {
-            sentinel = new DeqNode(null, null, null);
-            first = sentinel;
-            last = sentinel;
-            size = 0;
+    LinkedListDeque() {
+        sentinel = new DeqNode(null, null, null);
+        first = sentinel;
+        last = sentinel;
+        size = 0;
+    }
+
+    LinkedListDeque(LinkedListDeque other) {
+        sentinel = new DeqNode(null, null, null);
+        first = sentinel;
+        last = sentinel;
+        size = 0;
+
+        if (other == null) {
+            return;
         }
 
-        public LinkedListDeque(LinkedListDeque other) {
-            sentinel = new DeqNode(null, null, null);
-            first = sentinel;
-            last = sentinel;
-            size = 0;
+        DeqNode p_other = other.first;
+        DeqNode p_this = sentinel;
 
-            if (other == null){
-                return;
-            }
-
-            DeqNode p_other = other.first;
-            DeqNode p_this = sentinel;
-
-            while (p_other != other.last.next && other.size > 0) {
-                p_this.next = new DeqNode(p_other.item, p_this, null);
-                p_this = p_this.next;
-                p_other = p_other.next;
-                size += 1;
-            }
-            p_this.next = sentinel;
-            sentinel.prev = p_this;
-
-            first = sentinel.next;
-            last = sentinel.prev;
+        while (p_other != other.last.next && other.size > 0) {
+            p_this.next = new DeqNode(p_other.item, p_this, null);
+            p_this = p_this.next;
+            p_other = p_other.next;
+            size += 1;
         }
+        p_this.next = sentinel;
+        sentinel.prev = p_this;
+
+        first = sentinel.next;
+        last = sentinel.prev;
+    }
 
 
 
@@ -156,13 +156,13 @@ public class LinkedListDeque<T> {
         DeqNode p = first; 
         String out = "[";
 
-        if (size==0){
+        if (size == 0) {
             return "[]";
         }
 
         out += p.item;
         p = p.next;
-        while (p.item != null){
+        while (p.item != null) {
             out += (", " +  p.item.toString());
             p = p.next;
         }
@@ -170,18 +170,18 @@ public class LinkedListDeque<T> {
         return out + "]";
     }
 
-    public void printDeque(){
+    public void printDeque() {
         DeqNode p = first;
         String out = "";
 
-        if (size==0){
+        if (size == 0) {
             System.out.println(out);
             return;
         }
 
         out += p.item;
         p = p.next;
-        while (p.item != null){
+        while (p.item != null) {
             out += (" " +  p.item.toString());
             p = p.next;
         }
