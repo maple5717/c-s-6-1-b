@@ -25,7 +25,7 @@ public class LinkedListDeque<T> {
             size = 0;
         }
 
-        LinkedListDeque(LinkedListDeque other) {
+        public LinkedListDeque(LinkedListDeque other) {
             sentinel = new DeqNode(null, null, null);
             first = sentinel;
             last = sentinel;
