@@ -13,17 +13,17 @@ public class ArrayDeque<T> {
         items = (T []) new Object[8];
     }
 
-    public ArrayDeque(ArrayDeque other){
+    public ArrayDeque(ArrayDeque other) {
         size = other.size();
         len = size * 2;
 
-        if (len < 8){
+        if (len < 8) {
             len = 8;
         }
 
         items = (T []) new Object[len];
         int bias = len / 2;
-        for(int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             items[bias + i] = (T) other.get(i);
         }
 
@@ -77,7 +77,7 @@ public class ArrayDeque<T> {
         int item_num = nextLast - nextFirst - 1;
         T[] items_new = (T []) new Object[len_new];
 
-        for (int i = nextFirst + 1; i <= nextLast - 1; i++){
+        for (int i = nextFirst + 1; i <= nextLast - 1; i++) {
             int j = i - nextFirst - 1 + bias;
             items_new[j] = items[Math.floorMod(i, len)];
         }
@@ -89,7 +89,10 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
-        T ret = get(size);
+        if (size == 0) {
+            return null;
+        }
+        T ret = get(0);
         nextFirst += 1;
         size -= 1;
         shrink();
@@ -97,10 +100,13 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
-        T ret = get(0);
+        if (size == 0) {
+            return null;
+        }
+        T ret = get(size - 1);
         nextLast -= 1;
         size -= 1;
-        shrink();
+        shrink( );
         return ret;
     }
 
@@ -132,7 +138,7 @@ public class ArrayDeque<T> {
         return (size == 0);
     }
 
-    public void printall() {
+    public void printDeque() {
         String str = "";
         for(int i = 0; i <= len - 1; i++) {
             if (i == Math.floorMod(nextFirst, len)){
@@ -149,27 +155,28 @@ public class ArrayDeque<T> {
         System.out.println(str);
     }
 
-//    public static void main(String[] args) {
-//        ArrayDeque<Integer> d1 = new ArrayDeque<Integer>();
-//
-//        for(int i = 0; i <= 20; i++){
-//            d1.addLast(i);
-////            d1.printall();
-//        }
-//
-//        for(int i = 0; i <= 18; i++){
-//            d1.removeLast();
-//            d1.printall();
-//        }
-//        System.out.println(d1.size());
-//
-//        ArrayDeque<Integer> d2 = new ArrayDeque<Integer>(d1);
-//        d2.printall();
-//
-//
-//
-//
-//    }
+    public static void main(String[] args) {
+        ArrayDeque<Integer> d1 = new ArrayDeque<Integer>();
+
+        for(int i = 0; i <= 20; i++){
+            d1.addLast(i);
+//            d1.printDeque();
+        }
+
+        for(int i = 0; i <= 18; i++){
+            int a = (int) d1.removeLast();
+            System.out.println(a);
+//            d1.printDeque();
+        }
+        System.out.println(d1.size());
+
+        ArrayDeque<Integer> d2 = new ArrayDeque<Integer>(d1);
+        d2.printDeque();
+
+
+
+
+    }
 
 
 }
