@@ -18,14 +18,14 @@ public class LinkedListDeque<T> {
         }
     }
 
-    LinkedListDeque() {
+    public LinkedListDeque() {
         sentinel = new DeqNode(null, null, null);
         first = sentinel;
         last = sentinel;
         size = 0;
     }
 
-    LinkedListDeque(LinkedListDeque other) {
+    public LinkedListDeque(LinkedListDeque other) {
         sentinel = new DeqNode(null, null, null);
         first = sentinel;
         last = sentinel;
@@ -58,7 +58,7 @@ public class LinkedListDeque<T> {
         last = last.next; 
         sentinel.prev = last;
 
-        if (size == 0){
+        if (size == 0) {
             first = last;
         }
         size += 1;
@@ -69,14 +69,14 @@ public class LinkedListDeque<T> {
         first = first.prev; 
         
 
-        if (size == 0){
+        if (size == 0) {
             last = first;
         }
         size += 1;
     }
 
     public T removeFirst() {
-        if (size == 0){
+        if (size == 0) {
             return null;
         }
         DeqNode p = first;
@@ -92,7 +92,7 @@ public class LinkedListDeque<T> {
     }
 
     public T removeLast() {
-        if (size == 0){
+        if (size == 0) {
             return null;
         }
         DeqNode p = last;
@@ -108,7 +108,7 @@ public class LinkedListDeque<T> {
 
     public T get(int idx) {
         DeqNode p = first;
-        for(int i = 0; i < idx; i++){
+        for (int i = 0; i < idx; i++) {
             p = p.next;
         }
         return p.item;
@@ -122,12 +122,12 @@ public class LinkedListDeque<T> {
 //        copy.removeFirst();
 //        copy.getRecursive(idx-1);
 
-            DeqNode p = get_node(first, idx);
-            return p.item;
+        DeqNode p = get_node(first, idx);
+        return p.item;
     }
 
     private DeqNode get_node(DeqNode p, int idx) {
-        if (idx == 0){
+        if (idx == 0) {
             return p;
         }
         return get_node(p.next, idx - 1);
@@ -141,10 +141,10 @@ public class LinkedListDeque<T> {
 
 
     public boolean isEmpty() {
-        if (size == 0){
+        if (size == 0) {
             return true;
         }
-        else{
+        else {
             return false;
         }
     }
@@ -193,7 +193,7 @@ public class LinkedListDeque<T> {
 
 
 
-//    private static void main(String[] args) {
+//    public static void main(String[] args) {
 //        LinkedListDeque<Integer> d1 = new LinkedListDeque<Integer>();
 //        System.out.println(d1.isEmpty());
 //        System.out.println(d1.size());
