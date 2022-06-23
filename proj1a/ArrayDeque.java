@@ -96,13 +96,14 @@ public class ArrayDeque<T> {
         return ret;
     }
 
-    public void removeLast() {
+    public T removeLast() {
         T ret = get(0);
         nextLast -= 1;
         size -= 1;
         shrink();
         return ret;
     }
+
 
     private void shrink() {
         int item_num = (nextLast - nextFirst - 1);
@@ -125,6 +126,10 @@ public class ArrayDeque<T> {
 
     public int size() {
         return size;
+    }
+
+    public boolean isEmpty() {
+        return (size == 0);
     }
 
     public void printall() {
