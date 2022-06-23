@@ -106,14 +106,14 @@ public class ArrayDeque<T> {
         T ret = get(size - 1);
         nextLast -= 1;
         size -= 1;
-        shrink( );
+        shrink();
         return ret;
     }
 
 
     private void shrink() {
         int item_num = (nextLast - nextFirst - 1);
-        if ( item_num * 4 >= len){
+        if (item_num * 4 >= len) {
             return;
         }
 
@@ -140,14 +140,12 @@ public class ArrayDeque<T> {
 
     public void printDeque() {
         String str = "";
-        for(int i = 0; i <= len - 1; i++) {
-            if (i == Math.floorMod(nextFirst, len)){
+        for (int i = 0; i <= len - 1; i++) {
+            if (i == Math.floorMod(nextFirst, len)) {
                 str += " {" + items[i] + "} ";
-            }
-            else if (i == Math.floorMod(nextLast, len)) {
+            } else if (i == Math.floorMod(nextLast, len)) {
                 str += " [" + items[i] + "] ";
-            }
-            else {
+            } else {
                 str += " " + items[i] + " ";
             }
         }
@@ -155,28 +153,28 @@ public class ArrayDeque<T> {
         System.out.println(str);
     }
 
-    public static void main(String[] args) {
-        ArrayDeque<Integer> d1 = new ArrayDeque<Integer>();
-
-        for(int i = 0; i <= 20; i++){
-            d1.addLast(i);
-//            d1.printDeque();
-        }
-
-        for(int i = 0; i <= 18; i++){
-            int a = (int) d1.removeLast();
-            System.out.println(a);
-//            d1.printDeque();
-        }
-        System.out.println(d1.size());
-
-        ArrayDeque<Integer> d2 = new ArrayDeque<Integer>(d1);
-        d2.printDeque();
-
-
-
-
-    }
+//    public static void main(String[] args) {
+//        ArrayDeque<Integer> d1 = new ArrayDeque<Integer>();
+//
+//        for (int i = 0; i <= 20; i++) {
+//            d1.addLast(i);
+////            d1.printDeque();
+//        }
+//
+//        for (int i = 0; i <= 18; i++) {
+//            int a = (int) d1.removeLast();
+//            System.out.println(a);
+////            d1.printDeque();
+//        }
+//        System.out.println(d1.size());
+//
+//        ArrayDeque<Integer> d2 = new ArrayDeque<Integer>(d1);
+//        d2.printDeque();
+//
+//
+//
+//
+//    }
 
 
 }
