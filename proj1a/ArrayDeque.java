@@ -140,27 +140,27 @@ public class ArrayDeque<T> {
         System.out.println(str);
     }
 
-    public static void main(String[] args) {
-        ArrayDeque<Integer> d1 = new ArrayDeque<Integer>();
-
-        for(int i = 0; i <= 20; i++){
-            d1.addLast(i);
+//    public static void main(String[] args) {
+//        ArrayDeque<Integer> d1 = new ArrayDeque<Integer>();
+//
+//        for(int i = 0; i <= 20; i++){
+//            d1.addLast(i);
+////            d1.printall();
+//        }
+//
+//        for(int i = 0; i <= 18; i++){
+//            d1.removeLast();
 //            d1.printall();
-        }
-
-        for(int i = 0; i <= 18; i++){
-            d1.removeLast();
-            d1.printall();
-        }
-        System.out.println(d1.size());
-
-        ArrayDeque<Integer> d2 = new ArrayDeque<Integer>(d1);
-        d2.printall();
-
-
-
-
-    }
+//        }
+//        System.out.println(d1.size());
+//
+//        ArrayDeque<Integer> d2 = new ArrayDeque<Integer>(d1);
+//        d2.printall();
+//
+//
+//
+//
+//    }
 
 
 }
