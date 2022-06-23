@@ -88,16 +88,20 @@ public class ArrayDeque<T> {
         len = len_new;
     }
 
-    public void removeFirst() {
+    public T removeFirst() {
+        T ret = get(size);
         nextFirst += 1;
         size -= 1;
         shrink();
+        return ret;
     }
 
     public void removeLast() {
+        T ret = get(0);
         nextLast -= 1;
         size -= 1;
         shrink();
+        return ret;
     }
 
     private void shrink() {
